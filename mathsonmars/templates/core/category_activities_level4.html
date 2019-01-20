@@ -1,0 +1,171 @@
+{% extends "user/student_base_individual.html" %}
+{% block page %}
+<head>
+        <title>Maths on Mars</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        
+		<meta name="keywords" content="maths learning difficulty, primary school maths, number basics">
+        <meta name="description" content="Maths on Mars provides engaging online problem solving strategies and practice for 
+	children who have not developed a strong number sense.">
+        <meta name="author" content="Maths on Mars Team">
+		<meta name="language" content="English"/>
+
+  		<!-- Main Style Sheet -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/vendor/bootstrap.min.css') }}" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/app/flatty.css') }}" />
+  		<link rel="stylesheet" href="{{ url_for('static', filename='css/app/buttons.css') }}" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/app/activity.css') }}" />
+
+  		<!-- Fonts from Google Fonts -->
+	    <!--<link href='http://fonts.googleapis.com/css?family=Lato:300,400,900' rel='stylesheet' type='text/css'>-->
+	
+	    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	    <!--[if lt IE 9]>
+	    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+	    <!--script src="http://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.2.0/snap.svg-min.js"></script>-->
+	    <![endif]-->
+
+    </head>
+    
+<body class="homepage" data-spy="scroll" data-target=".navbar">
+  <!--[if lte IE 7]>
+      <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+  <![endif]-->
+
+
+
+  <header role="banner">
+      <div class="navbar navbar-custom navbar-fixed-top">
+          <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="{{ url_for('appl_view.student_home') }}"><span class="glyphicon glyphicon-home"></span> My home</a>
+          </div>
+          <div class="collapse navbar-collapse">
+              <ul class="nav navbar-nav">
+                  <li><a href="{{ url_for('appl_view.level') }}">Activities</a></li>
+                  <li><a href="{{ url_for('appl_view.methods') }}">Methods</a></li>
+                  <li>
+                  <a href="{{ url_for('appl_view.profile') }}"><img src="{{ url_for('static', filename= avatar_filename )}}"  alt="" style="width:20px"> Profile</a></li>
+              </ul>
+	                <ul class="nav navbar-nav navbar-right ">
+	                	<li><a href="{{ url_for('auth_view.logout') }}"><span class="glyphicon glyphicon-log-out"> Logout</a></li>
+					</ul>
+          </div><!--/.nav-collapse -->
+      </div>
+  </header>
+
+<div class="padfifty">
+  <!-- Page Content -->
+  <div class="table-responsive">
+	<table class="table">
+		<tbody>
+        <tr>
+       <th>Activity</th>
+       <th>Description</th>
+       <th>Strategy</th>
+       <th>Completed</th>
+       </tr>
+		{% for activity_strategy_tuple in activity_strategy_list %}
+       
+        <tr>
+        	
+            <td>
+	            <div class="col-sm-3">
+	              <a href="{{ url_for('appl_view.activity', activity_url = activity_strategy_tuple[0].url_name) }}"
+		            {% if activity_strategy_tuple[0].topic_progress|string == '1' %} 
+		              	class="btn btn-sm btn-default raised" >
+		              	<img src="{{ url_for('static', filename = 'img/levels/level2/npc_kitty_chicken__x1_3iconic_png_1354840555.png') }}" height="24">
+					{% elif activity_strategy_tuple[0].topic_progress|string == '2' %} 
+						class="btn btn-sm btn-default raised" >
+		              	<img src="{{ url_for('static', filename = 'img/levels/level2/artifact_chicken_brick__x1_1_png_1354840316.png') }}" height="24">
+					{% elif activity_strategy_tuple[0].topic_progress|string == '3' %} 
+						class="btn btn-sm btn-default raised" >
+		              	<img src="{{ url_for('static', filename = 'img/levels/level2/limited_edition_imitation_grichmas_yeti__x1_1_png_1354840054.png') }}" height="24">
+		            {% elif activity_strategy_tuple[0].topic_progress|string == '4' %} 
+		              	class="btn btn-sm btn-default raised" >
+		              	<img src="{{ url_for('static', filename = 'img/levels/level2/firefly_hive__x1_1_png_1354839702.png') }}" height="24">
+					{% elif activity_strategy_tuple[0].topic_progress|string == '5' %} 
+						class="btn btn-sm btn-default raised" >
+		              	<img src="{{ url_for('static', filename = 'img/levels/level2/npc_fox_fox_orangeFox_x1_iconic_png_1354839585.png') }}" height="24">
+					{% elif activity_strategy_tuple[0].topic_progress|string == '6' %} 
+						class="btn btn-sm btn-default raised" >
+		              	<img src="{{ url_for('static', filename = 'img/levels/level2/npc_bureaucrat_arms_02_glasses_none_hair_03_legs_02_necklace_none_tie_02_torso_02_x1_idle0_png_1354833036.png') }}" height="24">
+		            {% elif activity_strategy_tuple[0].topic_progress|string == '7' %} 
+		            	class="btn btn-sm btn-default raised" >
+		              	<img src="{{ url_for('static', filename = 'img/levels/level2/emotional_bear__x1_1_kiss_png_1354831950.png') }}" height="24">
+					{% elif activity_strategy_tuple[0].topic_progress|string == '8' %} 
+						class="btn btn-sm btn-default raised" >
+		              	<img src="{{ url_for('static', filename = 'img/levels/level2/npc_jabba1__x1_iconic_png_1354831091.png') }}" height="24">
+					{% elif activity_strategy_tuple[0].topic_progress|string == '9' %} 
+						class="btn btn-sm btn-default raised" >
+		              	<img src="{{ url_for('static', filename = 'img/levels/level2/special_item_that_only_beta_testers_get__x1_iconic_png_1354833774.png') }}" height="24">
+	              	{% elif activity_strategy_tuple[0].topic_progress|string == '10' %} 
+						class="btn btn-sm btn-default raised" >
+		              	<img src="{{ url_for('static', filename = 'img/levels/level2/npc_bureaucrat_arms_03_glasses_none_hair_04_legs_03_necklace_01_tie_none_torso_03_x1_idle0_png_1354833011.png') }}" height="24">
+	              	{% elif activity_strategy_tuple[0].topic_progress|string == '11' %} 
+						class="btn btn-sm btn-default raised" >
+		              	<img src="{{ url_for('static', filename = 'img/levels/level2/npc_yoga_frog_box_box_variant_frogRed_x1_iconic_png_1354833604.png') }}" height="24">         	
+	              	{% endif %}
+	              </a>
+            </td>
+            <td>
+	            <div class="col-sm-3">
+	              <a class="btn btn-sm btn-link "
+	              href="{{ url_for('appl_view.activity', activity_url = activity_strategy_tuple[0].url_name) }}">{{ activity_strategy_tuple[0].name }}
+	               </a>
+	               </div>
+            </td>
+            <td>
+	            <div class="col-sm-3">
+	            <a {% if activity_strategy_tuple[1].name == 'Count' %} class="btn btn-sm btn-warning outline" 
+	              {% elif activity_strategy_tuple[1].name == 'Patterns' %} class="btn btn-sm btn-primary outline" 
+	              {% elif activity_strategy_tuple[1].name == 'Count on' %} class="btn btn-sm btn-success outline" 
+	              {% elif activity_strategy_tuple[1].name == 'Count back' %} class="btn btn-sm btn-info outline"
+	              {% elif activity_strategy_tuple[1].name == 'Cross out' %} class="btn btn-sm btn-danger outline"
+	              {% elif activity_strategy_tuple[1].name == 'Count' %} class="btn btn-sm btn-warning outline" 
+	              {% elif activity_strategy_tuple[1].name == 'Memorize' %} class="btn btn-sm btn-primary outline" 
+	              {% elif activity_strategy_tuple[1].name == 'Fun chunks - single digits' %} class="btn btn-sm btn-warning outline" 
+	              {% elif activity_strategy_tuple[1].name == 'Fun chunks - single and single digits' %} class="btn btn-sm btn-success outline" 
+	              {% elif activity_strategy_tuple[1].name == 'Fun chunks - single and double digits' %} class="btn btn-sm btn-info outline"
+	              {% elif activity_strategy_tuple[1].name == 'Fun chunks - double digits' %} class="btn btn-sm btn-warning outline" 
+	              {% elif activity_strategy_tuple[1].name == 'Friendly and fix' %} class="btn btn-sm btn-primary outline" 
+	              {% elif activity_strategy_tuple[1].name == 'Add ten or one hundred' %} class="btn btn-sm btn-success outline" 
+	              {% elif activity_strategy_tuple[1].name == 'Friendly pairs' %} class="btn btn-sm btn-info outline"
+	              {% elif activity_strategy_tuple[1].name == 'Subtract ten or one hundred' %} class="btn btn-sm btn-danger outline"
+	              {% else %} class="btn btn-sm btn-danger outline"
+	              {% endif %}
+			        href="{{ url_for('appl_view.activity', activity_url = activity_strategy_tuple[0].url_name) }}">{{ activity_strategy_tuple[1].name }}
+			        </a>
+		        </div>
+            </td>
+            
+            <td>
+            	<div class="col-sm-3">
+	            {% if activity_strategy_tuple[2]| int  == 1 %} 
+	              	<a class="btn btn-sm btn-info sharp" href="{{ url_for('appl_view.activity', activity_url = activity_strategy_tuple[0].url_name) }}">{{ activity_strategy_tuple[2] }} time</a>
+            	{% elif activity_strategy_tuple[2]| int  == 2 %} 
+	              	<a class="btn btn-sm btn-warning sharp" href="{{ url_for('appl_view.activity', activity_url = activity_strategy_tuple[0].url_name) }}">{{ activity_strategy_tuple[2] }} time2</a>
+            	{% elif activity_strategy_tuple[2]| int  >= 3 %} 
+	              	<a class="btn btn-sm btn-success sharp" href="{{ url_for('appl_view.activity', activity_url = activity_strategy_tuple[0].url_name) }}">{{ activity_strategy_tuple[2] }} times</a>
+				{% else %} 
+					<a class="btn btn-sm btn-default sharp" href="{{ url_for('appl_view.activity', activity_url = activity_strategy_tuple[0].url_name) }}">{{ activity_strategy_tuple[2] }} times</a>
+				{% endif %}
+				</div>
+            </td>
+		</tr>
+	   {% endfor %}
+
+
+	 </table>
+</div>	  
+</div>
+
+ </body>
+{% endblock %}

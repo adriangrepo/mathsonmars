@@ -1,0 +1,18 @@
+/**
+ * Created by a on 23/01/16.
+ */
+function logger() {
+    var winston = require('winston');
+    var logger = new (winston.Logger)({
+        level: 'debug',
+        transports: [
+            new (winston.transports.Console)({ colorize: true })
+            /*new (winston.transports.File)({ filename: 'somefile.log' })*/
+        ]
+    });
+
+    logger.debug("First message from winston logger");
+
+}
+
+module.exports.logger = logger;

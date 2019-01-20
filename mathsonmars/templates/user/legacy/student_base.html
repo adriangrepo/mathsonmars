@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+{% block head %}
+
+{% endblock %}
+
+{% block header %}
+
+{% endblock %}
+
+{% block main %}
+
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<script>window.jQuery || document.write('<script src="{{ url_for('static', filename='js/jquery/jquery-2.2.2.min.js') }}">\x3C/script>')</script>
+  
+  <!-- Bootstrap CSS local fallback -->
+  <!--  
+  <script>
+    $(document).ready(function() {
+	    var bodyColor = $('body').css('color');
+	    console.log("body "+bodyColor);
+	    if(bodyColor != 'rgb(51, 51, 51)') {
+	    	$("head").prepend('<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap.min.css') }}>');
+	    	console.log('<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap.min.css') }}"/>');
+	    }
+    }
+    );
+  </script>
+  -->
+  
+    <!-- flash timeout -->
+  <script type="text/javascript">
+	$(document).ready(function() {
+	    // show the alert
+	    setTimeout(function() {
+	        $(".alert").alert('close');
+	    }, 5000);
+	});
+	</script>
+  
+	</body>
+</html>

@@ -1,0 +1,199 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Mask/Unmask Password Demo</title>
+<style>
+body {
+  background-color: #f2f2f2;
+  font-size: 12px;
+}
+
+.demo {
+  width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h1 {
+  font-size: 30px;
+  color: #969696;
+  text-shadow: 1px 1px 0px #fff;
+  font-weight: 100;
+}
+
+h1 span {
+  display: block;
+  font-size: 14px;
+  color: #bbb;
+}
+
+form p { position: relative; }
+
+label {
+  position: absolute;
+  left: -9999px;
+  text-indent: -9999px;
+}
+
+input {
+  width: 250px;
+  padding: 10px 12px;
+  margin-bottom: 5px;
+  border: 1px solid #cccccc;
+  border-bottom-color: #fff;
+  border-right-color: #fff;
+  border-radius: 4px;
+  background: #e3e3e3;
+  color: #888;
+}
+
+.password + .unmask {
+  position: absolute;
+  right: 68px;
+  top: 7px;
+  text-indent: -9999px;
+  width: 25px;
+  height: 25px;
+  background: #aaa;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  -webkit-appearance: none;
+}
+
+.password + .unmask:before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 17px;
+  height: 17px;
+  background: #e3e3e3;
+  z-index: 1;
+  border-radius: 50%;
+}
+
+.password[type="text"] + .unmask:after {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  width: 13px;
+  height: 13px;
+  background: #aaa;
+  z-index: 2;
+  border-radius: 50%;
+}
+</style>
+<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+</head>
+
+<body><div id="jquery-script-menu">
+<div class="jquery-script-center">
+<ul>
+<li><a href="http://www.jqueryscript.net/form/jQuery-Plugin-To-Mask-Unmask-Password-On-Demand.html">Download This Plugin</a></li>
+<li><a href="http://www.jqueryscript.net/">Back To jQueryScript.Net</a></li>
+</ul>
+<div class="jquery-script-ads"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-2783044520727903";
+/* jQuery_demo */
+google_ad_slot = "2780937993";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div class="jquery-script-clear"></div>
+</div>
+</div>
+<div class="demo" style="margin-top:150px;">
+  <h1>Mask/Unmask Password</h1>
+  <form>
+    <p>
+      <label for="username">Your login</label>
+      <input type="text" value="" placeholder="Enter Username" id="username">
+    </p>
+    <p>
+      <label for="password">Your password</label>
+      <input type="password" value="" placeholder="Enter Password" id="password" class="password">
+      <button class="unmask" type="button" title="Mask/Unmask password to check content">Unmask</button>
+    </p>
+  </form>
+</div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+<script>
+/* 
+  Switch actions
+*/
+$('.unmask').on('click', function(){
+  
+  if($(this).prev('input').attr('type') == 'password')
+    changeType($(this).prev('input'), 'text');
+  
+  else
+    changeType($(this).prev('input'), 'password');
+  
+  return false;
+});
+
+
+/* 
+  function from : https://gist.github.com/3559343
+  Thank you bminer!
+*/
+
+function changeType(x, type) {
+    if(x.prop('type') == type)
+        return x; //That was easy.
+    try {
+        return x.prop('type', type); //Stupid IE security will not allow this
+    } catch(e) {
+        //Try re-creating the element (yep... this sucks)
+        //jQuery has no html() method for the element, so we have to put into a div first
+        var html = $("<div>").append(x.clone()).html();
+        var regex = /type=(\")?([^\"\s]+)(\")?/; //matches type=text or type="text"
+        //If no match, we add the type attribute to the end; otherwise, we replace
+        var tmp = $(html.match(regex) == null ?
+            html.replace(">", ' type="' + type + '">') :
+            html.replace(regex, 'type="' + type + '"') );
+        //Copy data from old element
+        tmp.data('type', x.data('type') );
+        var events = x.data('events');
+        var cb = function(events) {
+            return function() {
+                //Bind all prior events
+                for(i in events)
+                {
+                    var y = events[i];
+                    for(j in y)
+                        tmp.bind(i, y[j].handler);
+                }
+            }
+        }(events);
+        x.replaceWith(tmp);
+        setTimeout(cb, 10); //Wait a bit to call function
+        return tmp;
+    }
+}
+</script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</body>
+</html>

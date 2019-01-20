@@ -1,0 +1,3 @@
+Email: {{ user.email }}
+Time: {{ user.time_signedup }}
+

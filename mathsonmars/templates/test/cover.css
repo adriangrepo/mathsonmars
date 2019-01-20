@@ -1,0 +1,12 @@
+	.my_banner {
+
+	  	
+	  	    padding-top: 50px; 
+    text-align: left;
+    color: #f8f8f8;
+    background: url(mars_prof_on_mars.png) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+	}

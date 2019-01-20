@@ -1,0 +1,7 @@
+Name: {{ user.contact_name }}
+Email: {{ user.email }}
+Time: {{ contact_request.time_requested_contact }}
+
+Subject: {{ contact_request.subject }}
+
+Message: {{ contact_request.message }}

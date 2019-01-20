@@ -1,0 +1,235 @@
+/* # = id, . = class */
+
+
+.curlyBrace {
+    stroke: #000000;
+    stroke-width: 2px;
+    fill: none;
+}
+
+.svg-container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    vertical-align: top;
+    overflow: hidden;
+    border: 1px solid;
+    border-color: black;
+    z-index: -1;
+}
+
+#svg_bg {
+    z-index: -1;
+}
+#svg_area {
+    z-index: 1;
+}
+
+.svg_small {
+    max-width: 100px;
+    margin: 10px;
+}
+
+#html_overlay{
+    /*position: absolute;*/
+    top: 0;
+    left:0;
+    right:0;
+    background-color:rgba(246, 250, 251, 0.9);
+    border: 1px solid;
+    border-color: rgba(0, 0, 0, 0.5);
+    padding-bottom: 4em;
+}
+
+
+
+.inline_answer_result {
+    display:inline;
+}
+
+#answer_text {
+    width: 2em;
+    background-color:rgba(225, 225, 102, 0.9);
+    min-width: 1.3em;
+    min-height: 1.3em;
+    border: 1px solid black;
+    padding-top: 0.1em;
+    text-align: left;
+    vertical-align: middle;
+    justify-content:center;
+    padding-left: 0.2em;
+    padding-right: 0.05em;
+    margin-left: 0.5em;
+}
+
+#result_text {
+    width: 2em;
+    margin-left: 1em;
+}
+
+#correct_equation_text {
+    min-height: 1.2em;
+}
+
+#chart {
+    margin: 10px;
+}
+
+.student_areas {
+    max-height: 220px;
+}
+
+/* student_home */
+.portfolio-item {
+    margin-bottom: 25px;
+}
+
+.navbar-custom {
+    background-color: #566573;
+    border-color: #2C3E50;
+}
+.navbar-custom .navbar-brand {
+    color: #f3fcff;
+}
+.navbar-custom .navbar-brand:hover,
+.navbar-custom .navbar-brand:focus {
+    color: #fcf9f9;
+}
+.navbar-custom .navbar-text {
+    color: #f3fcff;
+}
+.navbar-custom .navbar-nav > li > a {
+    color: #f3fcff;
+}
+.navbar-custom .navbar-nav > li > a:hover,
+.navbar-custom .navbar-nav > li > a:focus {
+    color: #fcf9f9;
+}
+.navbar-custom .navbar-nav > .active > a,
+.navbar-custom .navbar-nav > .active > a:hover,
+.navbar-custom .navbar-nav > .active > a:focus {
+    color: #fcf9f9;
+    background-color: #E64A19;
+}
+.navbar-custom .navbar-nav > .open > a,
+.navbar-custom .navbar-nav > .open > a:hover,
+.navbar-custom .navbar-nav > .open > a:focus {
+    color: #fcf9f9;
+    background-color: #E64A19;
+}
+.navbar-custom .navbar-toggle {
+    border-color: #E64A19;
+}
+.navbar-custom .navbar-toggle:hover,
+.navbar-custom .navbar-toggle:focus {
+    background-color: #E64A19;
+}
+.navbar-custom .navbar-toggle .icon-bar {
+    background-color: #f3fcff;
+}
+.navbar-custom .navbar-collapse,
+.navbar-custom .navbar-form {
+    border-color: #f3fcff;
+}
+.navbar-custom .navbar-link {
+    color: #f3fcff;
+}
+.navbar-custom .navbar-link:hover {
+    color: #fcf9f9;
+}
+
+@media (max-width: 767px) {
+    .navbar-custom .navbar-nav .open .dropdown-menu > li > a {
+        color: #f3fcff;
+    }
+    .navbar-custom .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-custom .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: #fcf9f9;
+    }
+    .navbar-custom .navbar-nav .open .dropdown-menu > .active > a,
+    .navbar-custom .navbar-nav .open .dropdown-menu > .active > a:hover,
+    .navbar-custom .navbar-nav .open .dropdown-menu > .active > a:focus {
+        color: #fcf9f9;
+        background-color: #B9B7B7;
+    }
+}
+
+.navbar-custom .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    background-color: #E64A19;
+    color: #f3fcff;
+}
+
+/* add space between vertically stacked buttons */
+.btn {
+    margin-bottom:5px;
+}
+
+/* progress bar */
+
+.vertical {
+  /*display: inline-block;*/
+  width: 60%;
+  height: 40px;
+}
+.vertical {
+  box-shadow: inset 0px 4px 6px #ccc;
+}
+
+.progress-bar {
+  	box-shadow: inset 0px 4px 6px rgba(100,100,100,0.6);
+}
+
+@media (min-width: 767px) {
+	.progress-bar {
+	  	 width: 100%;
+	}
+
+#qq-progress-text {
+	text-align: left;
+	margin-bottom: 100px;
+	color: grey;
+}
+
+@media (max-width: 767px) {
+	#qq-progress-text {
+		margin-bottom: 40px;
+		color: grey;
+	}
+
+/*
+input[type="text"] {
+	font-size: 40px;
+    width: 120px;
+    background-color: #f3fafe;
+}
+*/
+
+.input-lg[class="input-lg"] {
+	font-size: 40px;
+	min-width: 120px;
+    width: 120px;
+    background-color: #f3fafe;
+    text-shadow: 0 0 0 gray;
+    &:focus {
+        outline: none;
+    }
+}
+
+
+#question_description {
+	color:transparent;
+}
+
+#qq-input-field {
+	font-size: 40px;
+}
+
+.fill_height { 
+    min-height: 100%;
+    height: 100%;
+    padding:10px;
+}
+
+
+
+

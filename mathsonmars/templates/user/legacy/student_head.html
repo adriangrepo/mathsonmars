@@ -1,0 +1,34 @@
+{% extends "user/student_base.html" %}
+{% block head %}
+    <head>
+        <title>Maths on Mars</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        
+		<meta name="keywords" content="maths learning difficulty, primary school maths, number basics">
+        <meta name="description" content="Maths on Mars provides engaging online problem solving strategies and practice for 
+	children who have not developed a strong number sense.">
+        <meta name="author" content="Maths on Mars Team">
+		<meta name="language" content="English"/>
+
+  		<!-- Main Style Sheet -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/vendor/bootstrap.min.css') }}" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/app/flatty.css') }}" />
+  		<link rel="stylesheet" href="{{ url_for('static', filename='css/app/buttons.css') }}" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/app/activity.css') }}" />
+  		
+  		<!-- Fonts from Google Fonts -->
+	    <!--<link href='http://fonts.googleapis.com/css?family=Lato:300,400,900' rel='stylesheet' type='text/css'>-->
+	
+	    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	    <!--[if lt IE 9]>
+	    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+	    <!--script src="http://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.2.0/snap.svg-min.js"></script>-->
+	    <![endif]-->
+
+    </head>
+
+
+{% endblock %}

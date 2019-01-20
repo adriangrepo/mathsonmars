@@ -1,0 +1,167 @@
+{% extends "base.html" %}
+{% block page %}
+<!-- Head -->
+<head>
+	<title>Maths on Mars F.A.Q.</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+	<meta name="keywords" content="maths number sense, maths learning difficulty">
+	<meta name="description" content="Maths on Mars provides engaging online problem solving strategies and practice for 
+	children who have not developed a strong number sense.">
+	<meta name="author" content="Maths on Mars Team">
+	<meta name="language" content="English"/>
+	
+	<!-- Main Style Sheet -->
+	<!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />-->
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/vendor/bootstrap.min.css') }}" />
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/app/flatty.css') }}" />
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		
+		ga('create', 'UA-75714362-1', 'auto');
+		ga('send', 'pageview');
+
+	</script>
+</head>
+<!-- End Head -->
+<!-- SiteHeader -->
+<body class="homepage" data-spy="scroll" data-target=".navbar">
+	<!--[if lte IE 7]>
+	    <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+	<![endif]-->
+
+ 	<header role="banner">
+	<div class="navbar navbar-default navbar-fixed-top">
+		<div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		    </button>
+		    <a class="navbar-brand" href="{{ url_for('main_view.index') }}"><span class="glyphicon glyphicon-home"></span> Maths on Mars</a>
+		</div>
+		<div class="collapse navbar-collapse">
+		    <ul class="nav navbar-nav">
+		    	{% if not current_user.is_authenticated %}
+		<li ><a href="{{ url_for('main_view.index', _anchor='features') }}">Features</a></li>
+		  	<li class="dropdown">
+                <a href="#" data-toggle="dropdown" class="dropdown-toggle">About <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="{{ url_for('main_view.index', _anchor='about') }}">About us</a></li>
+                    <li><a href="{{ url_for('main_view.faq') }}">FAQs</a></li>
+                </ul>
+            </li>
+		  	<li><a href="{{ url_for('main_view.index', _anchor='signup') }}">Sign Up</a></li>	
+		  	<li><a href="https://www.surveymonkey.com/r/JV6WQNX">Survey</a></li>	
+		            
+		        {% else %}
+		        	<li><a href="{{ url_for('appl_view.user_area') }}"><span class="glyphicon glyphicon-user"></span> My work area</a></li>
+		         
+		        {% endif %}
+		
+		       
+		    </ul>
+		    <ul class="nav navbar-nav navbar-right ">
+		    {% if not current_user.is_authenticated %}
+	    <li><a href="{{ url_for('auth_view.login') }}"><span class="glyphicon glyphicon-log-in"> Login</a></li>
+		    {% else %}
+		    	<li><a href="{{ url_for('auth_view.logout') }}"><span class="glyphicon glyphicon-log-out"> Logout</a></li>
+		    {% endif %}
+		
+		</div><!--/.nav-collapse -->
+	</div>
+ 	</header>
+<!-- End SiteHeader -->
+
+<!-- Main -->
+  <main role="main">
+      <!-- Header -->
+      <a name="about"></a>
+      <div class="intro-faq">
+          <div class="container">
+              <div class="row">
+                  <div class="col-lg-12">
+                      <div class="intro-message">
+                          <h1>FAQs</h1>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <!-- /.container -->
+      </div>
+      <!-- /.intro-header -->
+
+    
+    <!-- FAQ SECTION -->
+    <section id="faq">
+      <div class="container">
+      <div class="row">
+        <h1 align="left">Frequently asked questions</h1>
+        <p>We have included answers to commonly asked questions below.</p>
+         </div><!-- /.row -->
+        <div class="row">
+        <h2 align="left">
+        Who
+        </h2>
+        <h3 align="left">
+        Q: What age range is Maths on Mars for?
+        </h3>
+		<p>Maths on Mars has been developed for primary aged children in grades 1 to 6.</p>
+		<h3 align="left">
+        Q: What maths ability is Maths on Mars focused on?
+        </h3>
+		<p>Maths on Mars was developed for students who have a maths learning difficulty or who need help developing a good number sense.</p>
+		<h3 align="left">
+        Q: Is Maths on Mars suited to kids with dyscalculia?
+        </h3>
+		<p>We focus on building a good number sense in students. Number deconstruction and reconstruction is an integral part of our learning activities.
+		We also try to provide clear, concise pictorial representations of problems. We believe these aspects of Maths on Mars are helpful to students with dyscalculia.</p>
+        </div><!-- /.row -->
+        <div class="row">
+        <h2 align="left">
+        Why
+        </h2>
+        <h3 align="left">
+        Q: How is Maths on Mars different to other on-line maths learning sites?
+        </h3>
+		<p>
+		We put a strong emphasis on problem-solving and reasoning and use abundant pictorial representations of problems and solutions. 
+		We have hints for each question so that if a student is having difficulty they are able to see a part-solution for the specific problem they are solving. 
+		We provide weekly email feedback on progress to parents and teachers. We also provide a reporting dash-board for parents and teachers.</p>
+		<h3 align="left">
+        Q: How is Maths on Mars different to correspondance maths centres?
+        </h3>
+		<p>Compared with correspondance centres we have reviewed, we put a stronger emphasis on problem-solving and reasoning and a lesser emphasis on memorization.</p>
+        </div><!-- /.row -->
+        <div class="row">
+        <h2 align="left">
+        When
+        </h2>
+        <h3 align="left">
+        Q: What is the timeline for completion of Maths on Mars?
+        </h3>
+		<p>We are working in stages and subscribers are able to access lessons as we complete them. We plan to complete all lessons for levels 1 to 6 before the end of 2016.
+		 We listen to subscribers and prioritize development according to their requirements.</p>
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+    </section><!-- /.row -->
+
+<!-- Footer -->
+  <footer role="contentinfo">
+    <div class="container text-center">
+		<div class="media">
+	    	<a href="{{ url_for('auth_view.contact') }}" ><span class="media-left glyphicon glyphicon-envelope gi-2x">
+	    	</span></a>
+	    <div class="media-body">
+	    	<h4>More questions? <a href="{{ url_for('auth_view.contact') }}"> contact us here</a></h4>
+
+	    </div>
+    </div>
+  </footer>
+<!-- End Footer -->
+{% endblock %}

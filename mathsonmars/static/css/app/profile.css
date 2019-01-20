@@ -1,0 +1,112 @@
+/* # = id, . = class */
+
+body {
+  background-color: #22a7f0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    color: #ecf0f1;
+}
+
+h1 {
+	font-size: 40px;
+}
+
+h3 {
+	
+	color: #ecf0f1;
+	font-weight: 400;
+}
+
+h4 {
+	color: #ecf0f1;
+	font-weight: 400;
+	font-size: 20px;
+}
+
+
+.navbar-custom {
+    background-color: #566573;
+    border-color: #2C3E50;
+}
+.navbar-custom .navbar-brand {
+    color: #f3fcff;
+}
+.navbar-custom .navbar-brand:hover,
+.navbar-custom .navbar-brand:focus {
+    color: #fcf9f9;
+}
+.navbar-custom .navbar-text {
+    color: #f3fcff;
+}
+.navbar-custom .navbar-nav > li > a {
+    color: #f3fcff;
+}
+.navbar-custom .navbar-nav > li > a:hover,
+.navbar-custom .navbar-nav > li > a:focus {
+    color: #fcf9f9;
+}
+.navbar-custom .navbar-nav > .active > a,
+.navbar-custom .navbar-nav > .active > a:hover,
+.navbar-custom .navbar-nav > .active > a:focus {
+    color: #fcf9f9;
+    background-color: #E64A19;
+}
+.navbar-custom .navbar-nav > .open > a,
+.navbar-custom .navbar-nav > .open > a:hover,
+.navbar-custom .navbar-nav > .open > a:focus {
+    color: #fcf9f9;
+    background-color: #E64A19;
+}
+.navbar-custom .navbar-toggle {
+    border-color: #E64A19;
+}
+.navbar-custom .navbar-toggle:hover,
+.navbar-custom .navbar-toggle:focus {
+    background-color: #E64A19;
+}
+.navbar-custom .navbar-toggle .icon-bar {
+    background-color: #f3fcff;
+}
+.navbar-custom .navbar-collapse,
+.navbar-custom .navbar-form {
+    border-color: #f3fcff;
+}
+.navbar-custom .navbar-link {
+    color: #f3fcff;
+}
+.navbar-custom .navbar-link:hover {
+    color: #fcf9f9;
+}
+
+@media (max-width: 767px) {
+    .navbar-custom .navbar-nav .open .dropdown-menu > li > a {
+        color: #f3fcff;
+    }
+    .navbar-custom .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-custom .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: #fcf9f9;
+    }
+    .navbar-custom .navbar-nav .open .dropdown-menu > .active > a,
+    .navbar-custom .navbar-nav .open .dropdown-menu > .active > a:hover,
+    .navbar-custom .navbar-nav .open .dropdown-menu > .active > a:focus {
+        color: #fcf9f9;
+        background-color: #B9B7B7;
+    }
+}
+
+.navbar-custom .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    background-color: #E64A19;
+    color: #f3fcff;
+}
+
+/* add space between vertically stacked buttons */
+.btn {
+    margin-bottom:5px;
+}
+
+
+
+

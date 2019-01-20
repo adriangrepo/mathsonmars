@@ -1,0 +1,76 @@
+{% extends "user/student_header.html" %}
+
+{% block main %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/app/activity.css') }}" />
+<link rel="stylesheet" href="{{ url_for('static', filename='css/app/basic_calc_numbers.css') }}" />
+
+<!-- d3.js -->
+<script src="{{ url_for('static', filename='js/app/d3/d3.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='js/app/mads/renderer.js') }}" type="text/javascript"></script>
+
+
+<!--Vanilla JS events-->
+<script src="{{ url_for('static', filename='js/app/mads/event_util.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='js/app/mads/mads_utils.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='js/app/mads/mads_events.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='js/app/mads/mads_html.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='js/app/mads/mads_base.js') }}" type="text/javascript"></script>
+
+<body>
+
+    <meta id="activity" data-activityjson="{{ activity_json }}">
+    <form method="post" action="{{ url_for('appl_view.activity_completed') }}">
+        <meta id="csrf_token" content="{{ csrf_token() }}" />
+    </form>
+    <div class="container">
+		<div class="row">
+
+			<!--<div class="col-sm-12  col-lg-12">outer .col-sm-10-->
+
+                <div class="col-sm-10">
+                    <div class="svg-container" id="chartId"></div>
+                    <div id='html_overlay'>
+				        	<div id="heading_area">
+				            	<h3>{{ category }} </h3>
+				            </div>
+				            <div class="wrapper" id="question_title"></div>
+				            <div class="wrapper" id="text_question"></div>
+				            <div class="wrapper" id="numeric_question"></div>
+				            <div class="wrapper" id="question_desc"></div>
+				            <div class="help"></div>
+                            <div class="row">
+                                <div id="calculator">
+                                    <div class="keys">
+                                        <span>0</span>
+                                        <span>1</span>
+                                        <span>2</span>
+                                        <span>3</span>
+                                        <span>4</span>
+                                        <span>5</span>
+                                        <span>6</span>
+                                        <span>7</span>
+                                        <span>8</span>
+                                        <span>9</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                    </div><!-- overlay -->
+                </div>
+                <div class="col-sm-2">
+                    <a class="btn btn-primary pull-left rh_colum_buttons" id ="easier_button">Easier</a>
+                    <a class="btn btn-primary pull-left rh_colum_buttons" id ="harder_button">Harder</a>
+                    <div id="chart"></div>
+                    <img class="svg_small" src="{{ url_for('static', filename='img/space/svg/flying_saucer_2.svg') }}" id="svg_help" style="width: 100%; height: auto;">
+                    <a class="btn btn-primary pull-left rh_colum_buttons" id ="next_button">Next</a>
+
+                </div>
+
+
+            <!--</div>--><!-- outer second column -->
+        </div><!-- row -->
+    </div><!-- container -->
+    <script type="text/javascript"> window.onLoad = mathQuiz();</script>
+</body>
+{% endblock %}

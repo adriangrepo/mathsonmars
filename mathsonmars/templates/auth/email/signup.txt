@@ -1,0 +1,11 @@
+Dear {{ user.contact_name }},
+
+Welcome to Maths on Mars!
+
+To confirm your account please click on the following link:
+
+{{ url_for('auth_view.confirm', token=token, _external=True) }}
+
+Sincerely,
+
+The Maths on Mars Team

@@ -1,0 +1,399 @@
+{% extends "base.html" %}
+{% block page %}
+<!-- Head -->
+<head>
+	<title>Maths on Mars</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="keywords" content="number sense, maths learning difficulty, primary school maths, maths basics"/>
+	<meta name="description" content="Maths on Mars provides engaging online problem solving strategies and practice for 
+	children who have not developed a strong number sense."/>
+	<meta name="author" content="Maths on Mars Team"/>
+	<meta name="language" content="English"/>
+	
+	<!-- Main Style Sheet -->
+	<!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />-->
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/vendor/bootstrap.min.css') }}" />
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/app/flatty.css') }}" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='img/icons/favicon.ico') }}" />`
+</head>
+<!-- End Head -->
+<!-- SiteHeader -->
+<body class="homepage" data-spy="scroll" data-target=".navbar">
+	<!--[if lte IE 7]>
+	    <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+	<![endif]-->
+
+ 	<header role="banner">
+	<div class="navbar navbar-default navbar-fixed-top">
+		<div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		    </button>
+		    <a class="navbar-brand" href="{{ url_for('main_view.index') }}"><span class="glyphicon glyphicon-home"></span> Maths on Mars</a>
+		</div>
+		<div class="collapse navbar-collapse">
+		    <ul class="nav navbar-nav">
+		    	{% if current_user.is_authenticated %}
+		    		<li><a href="{{ url_for('appl_view.user_area') }}"><span class="glyphicon glyphicon-user"></span> My work area</a></li>
+		    	{% else %}
+		<li ><a href="{{ url_for('main_view.index', _anchor='features') }}">Features</a></li>
+		  	<li class="dropdown">
+                <a href="#" data-toggle="dropdown" class="dropdown-toggle">About <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="{{ url_for('main_view.index', _anchor='about') }}">About us</a></li>
+                    <li><a href="{{ url_for('main_view.faq') }}">FAQs</a></li>
+                </ul>
+            </li>
+		  	<li><a href="{{ url_for('main_view.index', _anchor='signup') }}">Sign Up</a></li>	
+		  	<li><a href="https://www.surveymonkey.com/r/JV6WQNX">Survey</a></li>	
+		        {% endif %}
+
+		    </ul>
+		    <ul class="nav navbar-nav navbar-right ">
+		    {% if current_user.is_authenticated %}
+		    	<li><a href="{{ url_for('auth_view.logout') }}"><span class="glyphicon glyphicon-log-out"> Logout</a></li>
+		    {% else %}
+		    	<li><a href="{{ url_for('auth_view.login') }}"><span class="glyphicon glyphicon-log-in"> Login</a></li>
+		    {% endif %}
+		
+		</div><!--/.nav-collapse -->
+	</div>
+ 	</header>
+<!-- End SiteHeader -->
+
+<!-- Main -->
+  <main role="main">
+      <!-- Header -->
+      <a name="about"></a>
+      <div class="intro-header">
+          <div class="container">
+              <div class="row">
+                  <div class="col-lg-12">
+                      <div class="intro-message">
+                          <h1><b>Maths on Mars</b></h1>
+                          <h3>Maths fundamentals for kids</h3>
+                      </div>
+                  </div>
+                  
+                  
+              </div>
+          </div>
+          <!-- /.container -->
+      </div>
+
+      <!-- /.intro-header -->
+    <section id="freetrial">
+	<div class="container text-center">
+	<br>
+		<a href="{{ url_for('auth_view.signup', signup_type = 'free') }}" class="btn btn-lg btn-success" role="button">Try it free</a>
+	</div>
+	</section><!-- /#"freetrial" -->
+    
+
+    <!-- FEATURES SECTION -->
+    <section id="features">
+      <div class="container">
+        <h1>We focus on maths basics</h1>
+        <h3 align="left">
+        A solid foundation in Maths will give your primary school child ability, confidence, and a good basis for moving to more advanced maths.
+        </h3>
+        <div class="row">
+          <div class="features-item col-sm-6 col-md-4">
+            <span class="glyphicon glyphicon-equalizer gi-4x"></span>
+            <h2>Maths Building Blocks</h2>
+            <p>Guided learning through practice. Your child will start with easy problems and progress only when these skills have been mastered.</p>
+            <br>
+          </div>
+          <div class="features-item col-sm-6 col-md-4">
+            <span class="glyphicon glyphicon-education gi-4x"></span>
+            <h2>Set goals</h2>
+            <p>Regular, short periods of practice help retention, learning and enthusiasm. </p>
+            <br>
+          </div>
+          <div class="features-item col-sm-6 col-md-4">
+            <span class="glyphicon glyphicon-thumbs-up gi-4x"></span>
+            <h2>Rewards and incentives</h2>
+            <p>Your child will love winning points and medals for regular participation and progress.</p>
+            <br>
+          </div>
+          <div class="features-item col-sm-6 col-md-4">
+            <span class="glyphicon glyphicon-send gi-4x"></span>
+            <h2>Reporting</h2>
+            <p>Analyze your child's progress via a weekly email sent directly to your in-box.  The report will provide details on activity and individual progress. </p>
+            <br>
+          </div>
+            <div class="features-item col-sm-6 col-md-4">
+                <span class="glyphicon glyphicon-erase gi-4x"></span>
+                <h2>Flexibility</h2>
+                <p>The activities are flexible.  You can set a time limit for activities or have no time limit if you feel your child would be distracted by this feature.  You are in control.</p>
+                <br>
+            </div>
+            <div class="features-item col-sm-6 col-md-4">
+                <span class="glyphicon glyphicon-eye-open gi-4x"></span>
+                <h2>Distraction free</h2>
+                <p>We keep the activity screen very clean with no animation while the student is working. We don't show any timers so that the student doesn't feel under pressure. We use plain colors and large fonts for activity pages.</p>
+                <br>
+            </div>
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+    </section><!-- /.row -->
+
+    <!-- LEVELS SECTION -->
+    <section id="levels">
+      <div class="container">
+        <h1>Levels</h1>
+        <h3 align="left">
+        Levels are structured and progressive.
+        </h3>
+        <div class="row">
+          <div class="features-item col-sm-6 col-md-4">
+            <span ></span>
+                <button type="button" class="btn btn-lg btn-danger">Level 1</button>
+                <br>
+                <br>
+                <ul class="featureList">
+				  <li class="tick">Number bonds</li>
+				  <li class="box">Addition and subtraction in stages</li>
+				  <li class="box">Counting by twos, threes, fives and tens</li>
+				  <li class="box">Basic word problems</li>
+				</ul>
+              <br>
+          </div>
+          <div class="features-item col-sm-6 col-md-4">
+            <span ></span>
+                <button type="button" class="btn btn-lg btn-warning">Level 2</button>
+                <br>
+                <br>
+                <ul class="featureList">
+				  <li class="tick">Addition strategies to 3 digits</li>
+				  <li class="tick">Subtraction strategies to 3 digits</li>
+				  <li class="box">Multiplication basics</li>
+				  <li class="box">Negative numbers</li>
+				  <li class="box">Word problems</li>
+				</ul>
+              <br>
+          </div>
+          <div class="features-item col-sm-6 col-md-4">
+            <span ></span>
+              <button type="button" class="btn btn-lg btn-info">Level 3</button>
+              <br>
+              <br>
+                <ul class="featureList">
+				  <li class="box">Addition up to 4 digit numbers</li>
+				  <li class="box">Subtraction up to 4 digit numbers</li>
+				  <li class="tick">Multiplication up to 10 x 10</li>
+				  <li class="box">Multiplication 2 digits by 1 digit</li>
+				  <li class="box">Division up to 10 x 10</li>
+				  <li class="box">Fraction concepts</li>
+				  <li class="box">Word problems</li>
+				</ul>
+              <br>
+          </div>
+          <div class="features-item col-sm-6 col-md-4">
+            <span ></span>
+              <button type="button" class="btn btn-lg btn-success">Level 4</button>
+              <br>
+              <br>
+                <ul class="featureList">
+				  <li class="box">Addition up to 5 digit numbers</li>
+				  <li class="box">Subtraction up to 5 digit numbers</li>
+				  <li class="tick">Multiplication up to 12 x 12</li>
+				  <li class="box">Division up to 12 x 12</li>
+				  <li class="box">Decimals</li>
+				  <li class="box">Fractions</li>
+				  <li class="box">Word problems</li>
+				</ul>
+              <br>
+			</div>
+			<div class="features-item col-sm-6 col-md-4">
+            <span ></span>
+                <button type="button" class="btn btn-lg btn-primary">Level 5</button>
+                <br>
+            <i>Coming soon...</i>
+                <ul class="featureList">
+				  <li class="box">Addition</li>
+				  <li class="box">Subtraction</li>
+				  <li class="box">Multiplication</li>
+				  <li class="box">Division</li>
+				  <li class="box">Decimals</li>
+				  <li class="box">Fractions</li>
+				  <li class="box">Algebra</li>
+				  <li class="box">Word problems</li>
+				</ul>
+                <br>
+          	</div>
+            <div class="features-item col-sm-6 col-md-4">
+                <span ></span>
+                <button type="button" class="btn btn-lg btn-default">Level 6</button>
+                <br>
+                <i>Coming soon...</i>
+                <ul class="featureList">
+                    <li class="box">Addition</li>
+                    <li class="box">Subtraction</li>
+                    <li class="box">Multiplication</li>
+                    <li class="box">Division</li>
+                    <li class="box">Decimals</li>
+                    <li class="box">Fractions</li>
+                    <li class="box">Powers and roots</li>
+                    <li class="box">Algebra</li>
+                    <li class="box">Word problems</li>
+                </ul>
+                <br>
+            </div>
+          	
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+    </section><!-- /.row -->
+    
+    <!-- ABOUT SECTION -->
+    <section id="about">
+      <div class="container">
+        <h1>About Maths on Mars</h1>
+            <p>
+            Maths on Mars was developed to help children who have not developed a strong number sense.
+			</p>
+			<p>We created Maths on Mars as we found that other maths sites and correspondence / learning centre based approaches did not fully 
+			accommodate the needs of students with maths learning difficulties. 
+			</p>
+			<p>We have focused on providing strategies and guidelines for solving maths problems without relying solely on rote memorization. 
+			Students are encouraged to master methodologies before moving on to more advanced concepts. Like a pyramid each level of mathematics 
+			requires a broader base of more basic elements. Building a solid foundation at each level is important and we encourage students 
+			to work at their own pace.  
+			</p>
+			<p>
+			We believe it is important for teachers and parents to be able to review the progress of students. To do so we have built in a 
+			dashboard and optional email reports for teachers and parents to provide detailed feedback on student progress. 
+			</p>
+            <p>The Maths on Mars team is based in Perth, Australia.</p>
+            <p>You can find answers to commonly asked questions on our<a href="{{ url_for('main_view.faq') }}"> FAQ page</a></p>
+	   </div><!-- /.container -->
+    </section><!-- /#"about" -->
+
+<section id="signup">
+	<div class="container">
+		<h1>Try it free!</h1>
+	</div>	
+	<div class="container">
+		<div class="row">
+				<div class="col-xs-12 col-md-3">
+						<div class="panel panel-danger">
+								<div class="panel-heading">
+										<h3 class="text-center">Free</h3>
+										
+								</div>
+								<div class="panel-body text-center">
+										<p class="lead" style="font-size:30px"><strong>$0</strong></p>
+								</div>
+								<ul class="list-group list-group-flush text-center">
+                                        <li class="list-group-item">
+                                            <span class="glyphicon glyphicon-user"></span> 1 student
+                                        </li>
+										<li class="list-group-item">
+												<span class="glyphicon glyphicon-ok"></span> Access to pre-release Maths on Mars beta version
+										</li>
+                                        <li class="list-group-item">
+                                            <span class="glyphicon glyphicon-education"></span> Maths learning activities
+                                        </li>
+                                        <li class="list-group-item">
+                                            <span class="glyphicon glyphicon-tags"></span> No credit card required
+                                        </li>
+								</ul>
+								<div class="panel-footer"> <a class="btn btn-lg btn-block btn-danger" href="{{ url_for('auth_view.signup', signup_type = 'free') }}">Try it free</a> </div>
+						</div>
+				</div>
+				<div class="col-xs-12 col-md-3">
+						<div class="panel panel-info">
+								<div class="panel-heading">
+										<h3 class="text-center">July offer</h3>
+								</div>
+								<div class="panel-body text-center">
+										<p class="lead" style="font-size:30px"><strong>$15</strong></p>
+								</div>
+								<ul class="list-group list-group-flush text-center">
+                                        <li class="list-group-item">
+                                            <span class="glyphicon glyphicon-user"></span> 1 student
+                                        </li>
+                                        <li class="list-group-item">
+                                            <span class="glyphicon glyphicon-ok"></span> Access to pre-release Maths on Mars beta version
+                                        </li>
+                                        <li class="list-group-item">
+                                            <span class="glyphicon glyphicon-education"></span> Maths learning activities
+                                        </li>
+                                        <li class="list-group-item">
+                                            <span class="glyphicon glyphicon-calendar"></span> Maths on Mars Levels 1 - 6 (released before end 2016)
+                                        </li>
+                                        <li class="list-group-item">
+                                            <span class="glyphicon glyphicon-heart"></span> Fantastic Support
+                                        </li>
+										<li class="list-group-item">
+												<span class="glyphicon glyphicon-usd"></span> One-time fee only
+										</li>
+								</ul>
+								<div class="panel-footer"> <a class="btn btn-lg btn-block btn-primary" href="{{ url_for('auth_view.signup', signup_type = 'limited_offer') }}">Sign Me Up</a> </div>
+						</div>
+				</div>
+
+            <div class="col-xs-12 col-md-3">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h3 class="text-center">Standard</h3>
+                    </div>
+                    <div class="panel-body text-center">
+                        <p class="lead" style="font-size:30px"><strong>$5 per month</strong></p>
+                    </div>
+                    <ul class="list-group list-group-flush text-center">
+                        <li class="list-group-item">
+                            <span class="glyphicon glyphicon-user"></span> 1 student
+                        </li>
+                        <li class="list-group-item">
+                            <span class="glyphicon glyphicon-ok"></span> Access to pre-release Maths on Mars beta version
+                        </li>
+                        <li class="list-group-item">
+                            <span class="glyphicon glyphicon-education"></span> Maths learning activities
+                        </li>
+                        <li class="list-group-item">
+                            <span class="glyphicon glyphicon-calendar"></span> Maths on Mars Levels 1 - 6 (released before end 2016)
+                        </li>
+                        <li class="list-group-item">
+                            <span class="glyphicon glyphicon-heart"></span> Fantastic Support
+                        </li>
+                        <li class="list-group-item">
+                            <span class="glyphicon glyphicon-list-alt"></span> Parent and teacher feedback reports
+                        </li>
+                        <li class="list-group-item">
+                            <span class="glyphicon glyphicon-send"></span> Mars mission activities
+                        </li>
+                    </ul>
+                    <div class="panel-footer"> <a class="btn btn-lg btn-block btn-success" href="{{ url_for('auth_view.signup', signup_type = 'standard') }}">Sign Me Up</a> </div>
+                </div>
+            </div>
+
+
+		</div>
+</div>
+    <div class="container">
+        <p>* All prices are in Australian dollars</p>
+    </div>
+</section><!-- /#"signup" -->
+</main>
+<!-- End Main -->
+
+<!-- Footer -->
+  <footer role="contentinfo">
+    <div class="container text-center">
+		<div class="media">
+	    	<a href="{{ url_for('auth_view.contact') }}" ><span class="media-left glyphicon glyphicon-envelope gi-2x">
+	    	</span></a>
+	    <div class="media-body">
+	    	<h4><a href="{{ url_for('auth_view.contact') }}"> Contact us</a></h4>
+
+	    </div>
+    </div>
+  </footer>
+<!-- End Footer -->
+{% endblock %}

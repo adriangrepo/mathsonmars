@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% block page %}
+<!-- Head -->
+<head>
+	<title>Maths on Mars Student Registration</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+	<meta name="keywords" content="dyscalculia, maths learning difficulty">
+	<meta name="description" content="Maths on Mars provides engaging online problem solving strategies and practice for 
+	children who have not developed a strong number sense.">
+	<meta name="author" content="Maths on Mars Team">
+	<meta name="language" content="English"/>
+	
+	<!-- Main Style Sheet -->
+	<!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />-->
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/vendor/bootstrap.min.css') }}" />
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/app/flatty.css') }}" />
+
+</head>
+<!-- End Head -->
+<!-- SiteHeader -->
+<body class="homepage" data-spy="scroll" data-target=".navbar">
+	<!--[if lte IE 7]>
+	    <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+	<![endif]-->
+
+ 	<header role="banner">
+	<div class="navbar navbar-default navbar-fixed-top">
+		<div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		    </button>
+		    <a class="navbar-brand" href="{{ url_for('main_view.index') }}"><span class="glyphicon glyphicon-home"></span> Maths on Mars</a>
+		</div>
+		<div class="collapse navbar-collapse">
+		    <ul class="nav navbar-nav">
+		    	{% if not current_user.is_authenticated %}
+		<li ><a href="{{ url_for('main_view.index', _anchor='features') }}">Features</a></li>
+		  	<li class="dropdown">
+                <a href="#" data-toggle="dropdown" class="dropdown-toggle">About <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="{{ url_for('main_view.index', _anchor='about') }}">About us</a></li>
+                    <li><a href="{{ url_for('main_view.faq') }}">FAQs</a></li>
+                </ul>
+            </li>
+		  	<li><a href="{{ url_for('main_view.index', _anchor='signup') }}">Sign Up</a></li>	
+		  	<li><a href="https://www.surveymonkey.com/r/JV6WQNX">Survey</a></li>	
+		            
+		        {% else %}
+		        	<li><a href="{{ url_for('appl_view.user_area') }}"><span class="glyphicon glyphicon-user"></span> My work area</a></li>
+		         
+		        {% endif %}
+		
+		       
+		    </ul>
+		    <ul class="nav navbar-nav navbar-right ">
+		    {% if not current_user.is_authenticated %}
+	    <li><a href="{{ url_for('auth_view.login') }}"><span class="glyphicon glyphicon-log-in"> Login</a></li>
+		    {% else %}
+		    	<li><a href="{{ url_for('auth_view.logout') }}"><span class="glyphicon glyphicon-log-out"> Logout</a></li>
+		    {% endif %}
+		
+		</div><!--/.nav-collapse -->
+	</div>
+ 	</header>
+<!-- End SiteHeader -->
+
+	{% include 'flash.html' %}
+<a name="contact"></a>
+<div class="padfifty">
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-lg-8 col-lg-offset-2">
+
+                    <h1>Maths on Mars Registration Success</h1>
+                    
+					<p>Go to <a href="{{ url_for('appl_view.user_area') }}">my work area</a></p>
+                </div><!-- /.8 -->
+
+            </div> <!-- /.row-->
+
+        </div> <!-- /.container-->
+</div>
+    <br>
+  <!-- Footer -->
+  <footer role="contentinfo">
+    <div class="container text-center">
+		<div class="media">
+	    	<a href="{{ url_for('auth_view.contact') }}" ><span class="media-left glyphicon glyphicon-envelope gi-2x">
+	    	</span></a>
+	    <div class="media-body">
+	    	<h4><a href="{{ url_for('auth_view.contact') }}"> Contact us</a></h4>
+
+	    </div>
+    </div>
+  </footer>
+<!-- End Footer -->
+{% endblock %}

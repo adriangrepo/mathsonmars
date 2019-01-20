@@ -1,0 +1,12 @@
+Dear {{ user.first_name }},
+
+Thank you for registering a student with Maths on Mars.
+
+Login details for {{ student_first_name }} {{ student_last_name }} are provided below.
+
+Username: {{ student_username }}
+Password: {{ student_pass }}
+
+Sincerely,
+
+The Maths on Mars Team

@@ -1,0 +1,27 @@
+Flask==0.10.1
+
+# Flask Extensions
+Flask-Bcrypt==0.7.1
+Flask-Login==0.3.2
+Flask-Mail==0.9.1
+Flask-Script==2.0.5
+Flask-SQLAlchemy==2.1
+Flask-WTF==0.12
+Flask-Migrate==1.8.0
+
+# Flask Extensions (foundation specific)
+Flask-Assets==0.11
+Flask-Cache==0.13.1
+
+#other
+bcrypt==2.0.0
+blinker==1.4
+cffi==1.5.2
+email-validator==1.0.1
+Jinja2==2.8
+psycopg2==2.6.1
+requests==2.9.1
+SQLAlchemy==1.0.12
+Werkzeug==0.11.5
+WTForms==2.1
+gunicorn

@@ -1,0 +1,8 @@
+<p>Dear {{ user.contact_name }},</p>
+<p>Welcome to <b>Maths on Mars</b>!</p>
+<p>To confirm your account please <a href="{{ url_for('auth_view.confirm', token=token, _external=True) }}">click here</a>.</p>
+<p></p>
+<p>Sincerely,</p>
+<p></p>
+<p>The Maths on Mars Team</p>
+
